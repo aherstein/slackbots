@@ -5,7 +5,7 @@ from random import randint
 import tokens
 
 ENDPOINT = "slack.com/api/chat.postMessage"
-CHANCE_TO_POST = 5  # Out of 100
+CHANCE_TO_POST = 2  # Out of 100
 
 
 def check_chance():
