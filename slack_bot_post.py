@@ -35,12 +35,24 @@ def post_message(messages, token):
 
 
 def ballmer():
+    # Stock message
+    points = randint(-20, 20)
+    if points < 0:
+        points_message = "DROPPED"
+    else:
+        points_message = "GAINED"
+
+    extra_message = ""
+    if points <= -15:
+        extra_message = "I'M RUINED!!!!"
+
     messages = [
         "DEVELOPERS DEVELOPERS DEVELOPERS DEVELOPERS DEVELOPERS DEVELOPERS",
         "I LOVE THIS COMPANY YEEAAAAHHHHHHHH!!!!",
         "MY MICROSOFT ZUNE IS BROKEN!!!!",
         "WHO SAID SIT DOWN?!?!?!",
-        "WINDOWS WINDOWS WINDOWS BABY!!!!"
+        "WINDOWS WINDOWS WINDOWS BABY!!!!",
+        "MICROSOFT'S STOCK PRICE JUST {0} {1} POINTS!!!! {2}".format(points_message, abs(points), extra_message)
     ]
 
     message = post_message(messages, tokens.ballmer)
