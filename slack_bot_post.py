@@ -52,7 +52,8 @@ def ballmer():
         "MY MICROSOFT ZUNE IS BROKEN!!!!",
         "WHO SAID SIT DOWN?!?!?!",
         "WINDOWS WINDOWS WINDOWS BABY!!!!",
-        "MICROSOFT'S STOCK PRICE JUST {0} {1} POINTS!!!! {2}".format(points_message, abs(points), extra_message)
+        "MICROSOFT'S STOCK PRICE JUST {0} {1} POINTS!!!! {2}".format(points_message, abs(points), extra_message),
+        "I BINGED MY NAME AND ALL THAT CAME UP WERE EMBARASSNG VIDEOS OF ME SCREAMING AND SWEATING!!!!"
     ]
 
     message = post_message(messages, tokens.ballmer)
