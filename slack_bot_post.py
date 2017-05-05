@@ -3,6 +3,7 @@
 import requests
 from random import randint
 import tokens
+import datetime
 
 ENDPOINT = "slack.com/api/chat.postMessage"
 CHANCE_TO_POST = 2  # Out of 100
@@ -11,6 +12,12 @@ CHANCE_TO_POST = 2  # Out of 100
 def check_chance():
     test = randint(0, 100)
     return test < CHANCE_TO_POST
+
+
+def is_work_hour():
+    return datetime.datetime.today().weekday() < 5 and \
+           datetime.datetime.today().hour > 9 and \
+           datetime.datetime.today().hour < 17
 
 
 def post_message(messages, token):
@@ -48,6 +55,7 @@ def ballmer():
 
     messages = [
         "DEVELOPERS DEVELOPERS DEVELOPERS DEVELOPERS DEVELOPERS DEVELOPERS",
+        "I HAVE FOUR WORDS FOR YOU",
         "I LOVE THIS COMPANY YEEAAAAHHHHHHHH!!!!",
         "MY MICROSOFT ZUNE IS BROKEN!!!!",
         "WHO SAID SIT DOWN?!?!?!",
@@ -55,6 +63,9 @@ def ballmer():
         "MICROSOFT'S STOCK PRICE JUST {0} {1} POINTS!!!! {2}".format(points_message, abs(points), extra_message),
         "I BINGED MY NAME AND ALL THAT CAME UP WERE EMBARASSNG VIDEOS OF ME SCREAMING AND SWEATING!!!!"
     ]
+
+    if is_work_hour():
+        messages.append("<@U21FQ11EY> TYPES AND PRIORITIES")
 
     message = post_message(messages, tokens.ballmer)
 
